@@ -8,15 +8,41 @@
 </head>
 <body>
     <div class="container">
-        <div class="login-block">
+        <div class="login__block">
             <h3 class="title">Hello! <br>Register or Log In</h3>
             <div class="login__form">
-                <form action="#" class="login__form__wrapper" onsubmit="registerUser();">
+                <form action="#" class="login__form__wrapper" onsubmit="checkUser();">
                     <input type="email" placeholder="Your e-mail" name="userEmail" id="email">
                     <input type="password" placeholder="Password" name="password" id="password">
                     <input type="submit" value="Log In" id="login">
-                    <input type="submit" value="Register" id="register">
+                    <!--<input type="submit" value="Register" id="register">-->
                 </form>
+            </div>
+        </div>
+
+        <div class="todo__block" >
+            <h3 class="title">Create New Task</h3>
+            <div class="todo__form">
+                <form action="#" id="" class="todo__form__wrapper">
+                    <input type="text" placeholder="Add title" id="title">
+                    <textarea name="txarea" placeholder="Type a description" class="txarea" id="txarea" ></textarea>
+                    <div class="date__container">
+                        <label for="dateCurrent"> Choose current date
+                            <input id="dateCurrent" type="date" >
+                        </label>
+                        <label for="dateToDone"> Choose date task to be done
+                            <input id="dateToDone" type="date" >
+                        </label>
+                    </div>
+
+                    <input type="submit" value="Add new">
+                </form>
+                <ul class="todo__list">
+                    <li> Task 1</li>
+                    <li> Task 2</li>
+                    <li> Task 3</li>
+                    <li> Task 4</li>
+                </ul>
             </div>
         </div>
     </div>
