@@ -7,9 +7,23 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
+    <div class="container">
+        <div class="login-block">
+            <h3 class="title">Hello! <br>Register or Log In</h3>
+            <div class="login__form">
+                <form action="#" class="login__form__wrapper" onsubmit="registerUser();">
+                    <input type="email" placeholder="Your e-mail" name="userEmail" id="email">
+                    <input type="password" placeholder="Password" name="password" id="password">
+                    <input type="submit" value="Log In" id="login">
+                    <input type="submit" value="Register" id="register">
+                </form>
+            </div>
+        </div>
+    </div>
 
-
-
+<script src="scripts/ClassUser.js"></script>
+<script src="scripts/ClassLocalStorageHelper.js"></script>
+<script src="scripts/crypto.min.js"></script>
 <script src="scripts/script.js"></script>
 </body>
 </html>
