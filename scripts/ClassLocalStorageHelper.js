@@ -12,12 +12,26 @@ class LocalStorageHelper {
     }
 
     static getTasks(){
-        return (localStorage.length) ? JSON.parse(localStorage.getItem("tasks")) : [];
+        if (localStorage.length == 0) {
+            return [];
+        } else {
+            if (localStorage.getItem(["tasks"]) !== null) {
+                JSON.parse(localStorage.getItem("tasks"))
+            } else {
+                return [];
+            }
+        }
+        return [];
+
     }
 
     static addNewTask(task) {
         let tasksFromStorage = this.getTasks();
+        console.log(task);
+        console.log(tasksFromStorage);
+
         tasksFromStorage.push(task);
+
         localStorage.setItem("tasks", JSON.stringify(tasksFromStorage));
     }
 

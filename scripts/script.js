@@ -1,48 +1,3 @@
-// take data from inputs
-// function checkUser() {
-//     event.preventDefault();
-//     let email = document.getElementById('email');
-//     let password = document.getElementById('password');
-//     let userEmail = email.value;
-//     let userPassword = CryptoJS.MD5(password.value).toString();
-//
-//    LocalStorageHelper.getUsers().forEach((element) => {
-//         console.log(element);
-//         if (userEmail === element.email) {
-//             if(userPassword === element.password){
-//                 let loginFrom = document.querySelector('.login__block');
-//                 loginFrom.style.display = "none";
-//
-//                 let todoBlock = document.querySelector('.todo__block');
-//                 todoBlock.style.display = "block";
-//
-//                 let addForm = document.querySelector('.form__add');
-//                 addForm.style.display = "none";
-//
-//                 let addNewButton = document.getElementById("addNew");
-//                 addNewButton.addEventListener('click', addNewTask => {
-//                     let addForm = document.querySelector('.form__add');
-//                     addForm.style.display = "block";
-//                 });
-//
-//
-//             } else {
-//                 let divWrong = document.getElementById('wrong-password');
-//                 divWrong.innerHTML = "Password is incorrect.";
-//                 divWrong.classList.add("wrong");
-//
-//             }
-//
-//         } else {
-//             // registerUser();
-//         }
-//     })
-//
-//
-//
-//
-//
-// }
 
 function   checkUser(){
     // получить имеил
@@ -64,7 +19,7 @@ function   checkUser(){
     //         выходим из цикла
     //     }
     // }
-
+console.log(event);
     event.preventDefault();
     let email = document.getElementById('email');
     let password = document.getElementById('password');
@@ -78,21 +33,7 @@ function   checkUser(){
         if(emailValue === user.email) {
             // console.log(emailValue);
             if (passwordValue === user.password) {
-showList();
-                // let loginFrom = document.querySelector('.login__block');
-                // loginFrom.style.display = "none";
-                //
-                // let todoBlock = document.querySelector('.todo__block');
-                // todoBlock.style.display = "block";
-                //
-                // let addForm = document.querySelector('.form__add');
-                // addForm.style.display = "none";
-                //
-                // let addNewButton = document.getElementById("addNew");
-                // addNewButton.addEventListener('click', addNewTask => {
-                //     let addForm = document.querySelector('.form__add');
-                //     addForm.style.display = "block";
-                // });
+                showList();
                 userExist = true;
                 break;
 
@@ -158,19 +99,25 @@ function registerUser(){
 
 }
 
+function addTask() {
+    console.log(event);
+    event.preventDefault();
+    let title = document.getElementById('title');
+    let text = document.getElementById('txarea');
+
+    let taskTitle = title.value;
+    let taskText = text.value;
+    let currentDate = new Date();
+    let completeDate = document.getElementById('dateToDone');
+    let completeDateValue = completeDate.value;
+
+    console.log(completeDateValue);
+
+    let newTask = new Task(taskTitle, taskText, currentDate, completeDateValue);
+
+    LocalStorageHelper.addNewTask(newTask);
 
 
 
-// function addTask() {
-//     event.preventDefault();
-//     let title = document.getElementById('title');
-//     let text = document.getElementById('txarea');
-//
-//     let taskTitle = title.value;
-//     let taskText = text.value;
-//     let currentDate = new Date();
-//     let completeDate = document.
-//
-//     let newTask = new Task(taskTitle, taskText, )
-//
-// }
+
+}

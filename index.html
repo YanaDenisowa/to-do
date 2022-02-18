@@ -52,22 +52,19 @@
                 <button class="button" id="addNew">Add new</button>
             </div>
             <div class="form__add">
-            <h3 class="title">Create New Task</h3>
-            <div class="todo__form">
-                <form action="#" id="" class="todo__form__wrapper" onsubmit="addTask();">
-                    <input type="text" placeholder="Add title" id="title">
-                    <textarea name="txarea" placeholder="Type a description" class="txarea" id="txarea" ></textarea>
-                    <div class="date__container">
-                        <label for="dateToDone"> Choose date task to be done
-                            <input id="dateToDone" type="date" >
-                        </label>
-                    </div>
-
-                    <input type="submit" value="Add new">
-                </form>
-
-            <!--</div>-->
-            </div>
+                <h3 class="title">Create New Task</h3>
+                <div class="todo__form">
+                    <form action="#" class="todo__form__wrapper" onsubmit="addTask();">
+                        <input type="text" placeholder="Add title" id="title">
+                        <textarea name="txarea" placeholder="Type a description" class="txarea" id="txarea" ></textarea>
+                        <div class="date__container">
+                            <label for="dateToDone"> Choose date task to be done
+                                <input id="dateToDone" type="date" >
+                            </label>
+                        </div>
+                        <input type="submit" id="add" value="Add new">
+                    </form>
+                </div>
             </div>
     </div>
         </div>
