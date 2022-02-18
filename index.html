@@ -17,19 +17,48 @@
                     <input type="submit" value="Log In" id="login">
                     <!--<input type="submit" value="Register" id="register">-->
                 </form>
+                <div id="wrong-password" class="wrong"></div>
             </div>
         </div>
 
         <div class="todo__block" >
+            <div>
+                <table class="todo__list">
+                    <caption> <h3 class="title">To Do List</h3></caption>
+                    <tr>
+                        <th>Task</th>
+                        <th>Created Date</th>
+                        <th>Completed Date</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="checkbox">task1</td>
+                        <!--<td> task1</td>-->
+                        <td>01.12.2021</td>
+                        <td>03.02.2022 </td>
+                        <td><button>x</button></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="checkbox">task1</td>
+                        <td>01.12.2021</td>
+                        <td>03.02.2022</td>
+                        <td><button>X</button></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="checkbox">task1</td>
+                        <td>01.12.2021</td>
+                        <td>03.02.2022</td>
+                        <td><button>X</button></td>
+                    </tr>
+                </table>
+                <button class="button" id="addNew">Add new</button>
+            </div>
+            <div class="form__add">
             <h3 class="title">Create New Task</h3>
             <div class="todo__form">
                 <form action="#" id="" class="todo__form__wrapper">
                     <input type="text" placeholder="Add title" id="title">
                     <textarea name="txarea" placeholder="Type a description" class="txarea" id="txarea" ></textarea>
                     <div class="date__container">
-                        <label for="dateCurrent"> Choose current date
-                            <input id="dateCurrent" type="date" >
-                        </label>
                         <label for="dateToDone"> Choose date task to be done
                             <input id="dateToDone" type="date" >
                         </label>
@@ -37,15 +66,12 @@
 
                     <input type="submit" value="Add new">
                 </form>
-                <ul class="todo__list">
-                    <li> Task 1</li>
-                    <li> Task 2</li>
-                    <li> Task 3</li>
-                    <li> Task 4</li>
-                </ul>
+
+            <!--</div>-->
             </div>
-        </div>
+            </div>
     </div>
+        </div>
 
 <script src="scripts/ClassUser.js"></script>
 <script src="scripts/ClassLocalStorageHelper.js"></script>

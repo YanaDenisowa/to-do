@@ -3,11 +3,8 @@ function checkUser() {
     event.preventDefault();
     let email = document.getElementById('email');
     let password = document.getElementById('password');
-
     let userEmail = email.value;
     let userPassword = CryptoJS.MD5(password.value).toString();
-// console.log(userEmail);
-
 
    LocalStorageHelper.getUsers().forEach((element) => {
         console.log(element);
@@ -15,16 +12,34 @@ function checkUser() {
             if(userPassword === element.password){
                 let loginFrom = document.querySelector('.login__block');
                 loginFrom.style.display = "none";
+
                 let todoBlock = document.querySelector('.todo__block');
                 todoBlock.style.display = "block";
 
+                let addForm = document.querySelector('.form__add');
+                addForm.style.display = "none";
+
+                let addNewButton = document.getElementById("addNew");
+                addNewButton.addEventListener('click', addNewTask => {
+                    let addForm = document.querySelector('.form__add');
+                    addForm.style.display = "block";
+                });
+
+
+            } else {
+                let divWrong = document.getElementById('wrong-password');
+                divWrong.innerHTML = "Password is incorrect.";
+                divWrong.classList.add("wrong");
 
             }
+        } else {
+            let divWrong = document.getElementById('wrong-password');
+            divWrong.innerHTML = "Please enter a valid email, this one is incorrect.";
+            divWrong.classList.add("wrong");
         }
 
+
     })
-
-
 
 }
 
