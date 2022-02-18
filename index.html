@@ -32,10 +32,9 @@
                     </tr>
                     <tr>
                         <td colspan="2"><input type="checkbox">task1</td>
-                        <!--<td> task1</td>-->
                         <td>01.12.2021</td>
                         <td>03.02.2022 </td>
-                        <td><button>x</button></td>
+                        <td><button>X</button></td>
                     </tr>
                     <tr>
                         <td colspan="2"><input type="checkbox">task1</td>
@@ -55,7 +54,7 @@
             <div class="form__add">
             <h3 class="title">Create New Task</h3>
             <div class="todo__form">
-                <form action="#" id="" class="todo__form__wrapper">
+                <form action="#" id="" class="todo__form__wrapper" onsubmit="addTask();">
                     <input type="text" placeholder="Add title" id="title">
                     <textarea name="txarea" placeholder="Type a description" class="txarea" id="txarea" ></textarea>
                     <div class="date__container">
@@ -73,9 +72,10 @@
     </div>
         </div>
 
-<script src="scripts/ClassUser.js"></script>
-<script src="scripts/ClassLocalStorageHelper.js"></script>
-<script src="scripts/crypto.min.js"></script>
-<script src="scripts/script.js"></script>
+    <script src="scripts/ClassUser.js"></script>
+    <script src="scripts/ClassTask.js"></script>
+    <script src="scripts/ClassLocalStorageHelper.js"></script>
+    <script src="scripts/crypto.min.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>

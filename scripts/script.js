@@ -1,48 +1,137 @@
 // take data from inputs
-function checkUser() {
+// function checkUser() {
+//     event.preventDefault();
+//     let email = document.getElementById('email');
+//     let password = document.getElementById('password');
+//     let userEmail = email.value;
+//     let userPassword = CryptoJS.MD5(password.value).toString();
+//
+//    LocalStorageHelper.getUsers().forEach((element) => {
+//         console.log(element);
+//         if (userEmail === element.email) {
+//             if(userPassword === element.password){
+//                 let loginFrom = document.querySelector('.login__block');
+//                 loginFrom.style.display = "none";
+//
+//                 let todoBlock = document.querySelector('.todo__block');
+//                 todoBlock.style.display = "block";
+//
+//                 let addForm = document.querySelector('.form__add');
+//                 addForm.style.display = "none";
+//
+//                 let addNewButton = document.getElementById("addNew");
+//                 addNewButton.addEventListener('click', addNewTask => {
+//                     let addForm = document.querySelector('.form__add');
+//                     addForm.style.display = "block";
+//                 });
+//
+//
+//             } else {
+//                 let divWrong = document.getElementById('wrong-password');
+//                 divWrong.innerHTML = "Password is incorrect.";
+//                 divWrong.classList.add("wrong");
+//
+//             }
+//
+//         } else {
+//             // registerUser();
+//         }
+//     })
+//
+//
+//
+//
+//
+// }
+
+function   checkUser(){
+    // получить имеил
+    // получить пароль
+    // получить всех юзеров
+    // пройти по каждому юзеру и проверить
+    // проверить каждого юзера {
+    //
+    //     если у юзера имеил совпадает и тот, что ввели совпадает{
+    //         то проверяем пароль
+    //         если пароль сопал то
+    //         потом показываем список дел
+    //         прекращаем итерации
+    //
+    //     }
+    //
+    //     если у юзера несовпал имеил и не совпал пароль{
+    //         регистрируем юзера
+    //         выходим из цикла
+    //     }
+    // }
+
     event.preventDefault();
     let email = document.getElementById('email');
     let password = document.getElementById('password');
-    let userEmail = email.value;
-    let userPassword = CryptoJS.MD5(password.value).toString();
 
-   LocalStorageHelper.getUsers().forEach((element) => {
-        console.log(element);
-        if (userEmail === element.email) {
-            if(userPassword === element.password){
-                let loginFrom = document.querySelector('.login__block');
-                loginFrom.style.display = "none";
+    let emailValue = email.value;
+    let passwordValue = CryptoJS.MD5(password.value).toString();
+    let userExist ;
 
-                let todoBlock = document.querySelector('.todo__block');
-                todoBlock.style.display = "block";
+       for( let user of LocalStorageHelper.getUsers()){
 
-                let addForm = document.querySelector('.form__add');
-                addForm.style.display = "none";
+        if(emailValue === user.email) {
+            // console.log(emailValue);
+            if (passwordValue === user.password) {
+showList();
+                // let loginFrom = document.querySelector('.login__block');
+                // loginFrom.style.display = "none";
+                //
+                // let todoBlock = document.querySelector('.todo__block');
+                // todoBlock.style.display = "block";
+                //
+                // let addForm = document.querySelector('.form__add');
+                // addForm.style.display = "none";
+                //
+                // let addNewButton = document.getElementById("addNew");
+                // addNewButton.addEventListener('click', addNewTask => {
+                //     let addForm = document.querySelector('.form__add');
+                //     addForm.style.display = "block";
+                // });
+                userExist = true;
+                break;
 
-                let addNewButton = document.getElementById("addNew");
-                addNewButton.addEventListener('click', addNewTask => {
-                    let addForm = document.querySelector('.form__add');
-                    addForm.style.display = "block";
-                });
-
-
-            } else {
+            }else if (passwordValue !== user.password) {
                 let divWrong = document.getElementById('wrong-password');
-                divWrong.innerHTML = "Password is incorrect.";
+                divWrong.innerHTML = "Email or Password isn't correct.";
                 divWrong.classList.add("wrong");
-
+                userExist = true;
+                break;
             }
-        } else {
-            let divWrong = document.getElementById('wrong-password');
-            divWrong.innerHTML = "Please enter a valid email, this one is incorrect.";
-            divWrong.classList.add("wrong");
+
         }
+    }
+    if(userExist !== true){
+        registerUser();
+    }
 
-
-    })
 
 }
 
+
+
+function showList() {
+    let loginFrom = document.querySelector('.login__block');
+    loginFrom.style.display = "none";
+
+    let todoBlock = document.querySelector('.todo__block');
+    todoBlock.style.display = "block";
+
+    let addForm = document.querySelector('.form__add');
+    addForm.style.display = "none";
+
+    let addNewButton = document.getElementById("addNew");
+    addNewButton.addEventListener('click', addNewTask => {
+        let addForm = document.querySelector('.form__add');
+        addForm.style.display = "block";
+    });
+
+}
 
 
 function registerUser(){
@@ -63,19 +152,25 @@ function registerUser(){
     //add new user to local storage
     LocalStorageHelper.addNewUser(newUser);
 
+    showList();
     console.log(LocalStorageHelper.getUsers());
-
-    LocalStorageHelper.checkUserExist(newUser);
 
 
 }
 
-// function clearInputs(){
-//     let password = document.getElementById('password');
-//     let email = document.getElementById('email');
-//     let userEmail = email.value;
-//     let userPassword = CryptoJS.MD5(password.value).toString();
-//     userEmail = "";
-//     userPassword= "";
-//     console.log('text clear');
+
+
+
+// function addTask() {
+//     event.preventDefault();
+//     let title = document.getElementById('title');
+//     let text = document.getElementById('txarea');
+//
+//     let taskTitle = title.value;
+//     let taskText = text.value;
+//     let currentDate = new Date();
+//     let completeDate = document.
+//
+//     let newTask = new Task(taskTitle, taskText, )
+//
 // }
